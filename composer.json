@@ -16,6 +16,7 @@
         "laravel/jetstream": "^2.12",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
+        "mstfkhazaal/defender": "^0.13.0",
         "nwidart/laravel-modules": "^9.0",
         "tightenco/ziggy": "^1.0"
     },
