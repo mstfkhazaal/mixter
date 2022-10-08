@@ -26,8 +26,8 @@ return [
     */
 
     'stubs' => [
-        'enabled' => false,
-        'path' => base_path('vendor/nwidart/laravel-modules/src/Commands/stubs'),
+        'enabled' => true,
+        'path' => base_path().'/stubs/nwidart-stubs',
         'files' => [
             'routes/web' => 'Routes/web.php',
             'routes/api' => 'Routes/api.php',
@@ -48,7 +48,14 @@ return [
             'routes/web' => ['LOWER_NAME', 'STUDLY_NAME'],
             'routes/api' => ['LOWER_NAME'],
             'webpack' => ['LOWER_NAME'],
-            'json' => ['LOWER_NAME', 'STUDLY_NAME', 'MODULE_NAMESPACE', 'PROVIDER_NAMESPACE'],
+            'json' => [
+                'LOWER_NAME',
+                'STUDLY_NAME',
+                'MODULE_NAMESPACE',
+                'PROVIDER_NAMESPACE',
+                'AUTHOR_NAME',
+                'AUTHOR_EMAIL',
+            ],
             'views/index' => ['LOWER_NAME'],
             'views/master' => ['LOWER_NAME', 'STUDLY_NAME'],
             'scaffold/config' => ['STUDLY_NAME'],

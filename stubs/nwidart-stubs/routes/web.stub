@@ -11,6 +11,6 @@
 |
 */
 
-Route::prefix('$LOWER_NAME$')->group(function() {
+Route::prefix('$LOWER_NAME$')->middleware(['auth', 'verified'])->group(function() {
     Route::get('/', '$STUDLY_NAME$Controller@index');
 });
