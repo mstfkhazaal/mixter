@@ -27,7 +27,7 @@ return [
 
     'stubs' => [
         'enabled' => true,
-        'path' => base_path().'/stubs/nwidart-stubs',
+        'path' => base_path() . '/stubs/nwidart-stubs',
         'files' => [
             'routes/web' => 'Routes/web.php',
             'routes/api' => 'Routes/api.php',
@@ -213,7 +213,7 @@ return [
     */
 
     'scan' => [
-        'enabled' => false,
+        'enabled' => true,
         'paths' => [
             base_path('vendor/*/*'),
         ],

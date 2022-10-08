@@ -1,12 +1,3 @@
 {
-    "Shop": true,
-    "Inventory": true,
-    "HR": true,
-    "Tasks": true,
-    "Projects": true,
-    "Subscription": true,
-    "Support": true,
-    "Accounting": true,
-    "Survey": true,
-    "Chat": true
+    "Subscription": true
 }
