@@ -35,7 +35,7 @@ class InstallSeeder extends Seeder
         // Create Super User
         DB::table('users')->insert([
             'id' => 1,
-            'name' => 'admin',
+            'name' => 'Admin',
             'email' =>  'admin@gmail.com',
             'password' => Hash::make('123456789'),
             'created_at' => Carbon::now(),
@@ -45,7 +45,7 @@ class InstallSeeder extends Seeder
         //// Create Customers
         DB::table('users')->insert([
             'id' => 2,
-            'name' => 'customer',
+            'name' => 'Customer',
             'email' =>  'customer@gmail.com',
             'password' => Hash::make('123456789'),
             'created_at' => Carbon::now(),
@@ -55,7 +55,7 @@ class InstallSeeder extends Seeder
         //// Create Supplier
         DB::table('users')->insert([
             'id' => 3,
-            'name' => 'supplier',
+            'name' => 'Supplier',
             'email' =>  'supplier@gmail.com',
             'password' => Hash::make('123456789'),
             'created_at' => Carbon::now(),

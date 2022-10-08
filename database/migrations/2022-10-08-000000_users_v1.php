@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Laravel\Fortify\Fortify;
 
 return new class extends Migration
 {
@@ -19,18 +20,27 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->text('two_factor_secret')->nullable();
-            $table->text('two_factor_recovery_codes')->nullable();
-            if (Fortify::confirmsTwoFactorAuthentication()) {
-                $table->timestamp('two_factor_confirmed_at')
-                    ->after('two_factor_recovery_codes')
-                    ->nullable();
-            }
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();
             $table->softDeletes();
+        });
+        // User Fortify
+        Schema::table('users', function (Blueprint $table) {
+            $table->text('two_factor_secret')
+                ->after('password')
+                ->nullable();
+
+            $table->text('two_factor_recovery_codes')
+                ->after('two_factor_secret')
+                ->nullable();
+
+            if (Fortify::confirmsTwoFactorAuthentication()) {
+                $table->timestamp('two_factor_confirmed_at')
+                    ->after('two_factor_recovery_codes')
+                    ->nullable();
+            }
         });
         // Password Resets
         Schema::create('password_resets', function (Blueprint $table) {
@@ -49,7 +59,7 @@ return new class extends Migration
             $table->timestamp('failed_at')->useCurrent();
         });
         // Personal Access Tockens
-        Schema::create('personal_access_tokens', function (Blueprint $table) {
+        /* Schema::create('personal_access_tokens', function (Blueprint $table) {
             $table->id();
             $table->morphs('tokenable');
             $table->string('name');
@@ -58,7 +68,7 @@ return new class extends Migration
             $table->timestamp('last_used_at')->nullable();
             $table->timestamp('expires_at')->nullable();
             $table->timestamps();
-        });
+        });*/
         // Session
         Schema::create('sessions', function (Blueprint $table) {
             $table->string('id')->primary();
