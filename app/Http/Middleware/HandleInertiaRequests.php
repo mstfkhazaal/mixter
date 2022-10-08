@@ -40,6 +40,12 @@ class HandleInertiaRequests extends Middleware
                     'location' => $request->url(),
                 ]);
             },
+            'flash' => [
+                'message' => session('message'),
+                'success' => session('success')
+            ],
+            'roles' =>  json_decode(array(Defender::javascript()->render())[0]['roles']),
+            'permission' =>  json_decode(array(Defender::javascript()->render())[0]['permissions']),
         ]);
     }
 }
