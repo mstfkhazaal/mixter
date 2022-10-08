@@ -12,7 +12,13 @@ export default defineConfig({
     server: detectServerConfig(host),
     plugins: [
         laravel({
-            input: "resources/js/app.js",
+            input: [
+                "resources/css/app.css",
+                "resources/js/app.js",
+                "resources/**/*.vue",
+                "resources/**/**/*.vue",
+                "./Modules/**/Resources/**/*.vue",
+            ],
             ssr: "resources/js/ssr.js",
             refresh: true,
         }),
