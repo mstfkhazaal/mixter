@@ -1,0 +1,23 @@
+{
+    "name": "Wue/hr",
+    "description": "",
+    "authors": [
+        {
+            "name": "Moustafa Khazaal",
+            "email": "mstfkhazaal@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\HR\\": ""
+        }
+    }
+}

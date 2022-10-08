@@ -1,0 +1,17 @@
+{
+    "name": "Chat",
+    "alias": "chat",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Chat\\Providers\\ChatServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": [],
+    "minimumCoreVersion": "",
+    "title": "",
+    "version": "0.0.1",
+    "author": "Moustafa Khazaal"
+}
