@@ -15,7 +15,7 @@
 }
 
 .timeline .timeline-item::before {
-  @apply absolute inset-0 order-[-1] w-[var(--line)] translate-x-[calc(-1*((var(--size)/2)-(var(--line)/2)))] content-[''];
+  @apply absolute inset-0 order-[-1] w-[var(--line)] translate-x-[calc((var(--size)/2)-(var(--line)/2))] content-[''];
 }
 
 .timeline .timeline-item:not(:last-child)::before {

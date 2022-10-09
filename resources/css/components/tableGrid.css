@@ -1,5 +1,5 @@
 th.gridjs-th .gridjs-th-content {
-  @apply float-right;
+  @apply float-left;
 }
 
 button.gridjs-sort {
@@ -17,7 +17,7 @@ th.gridjs-th-sort .gridjs-th-content {
 }
 
 button.gridjs-sort {
-  @apply float-left m-0 mt-1 h-3 w-3 cursor-pointer border-none bg-no-repeat p-0 outline-none;
+  @apply float-right m-0 mt-1 h-3 w-3 cursor-pointer border-none bg-no-repeat p-0 outline-none;
 }
 
 button.gridjs-sort-neutral {
@@ -47,7 +47,7 @@ button.gridjs-sort-desc {
 }
 
 .gridjs-pages {
-  @apply flex space-x-reverse flex-wrap space-x-1 text-slate-600 dark:text-slate-300;
+  @apply flex flex-wrap space-x-1 text-slate-600 dark:text-slate-300;
 }
 
 .gridjs-pages button {
@@ -60,8 +60,4 @@ button.gridjs-sort-desc {
 
 .gridjs-wrapper{
     @apply min-w-full overflow-x-auto
-}
-
-.gridjs-table{
-  @apply text-right
 }

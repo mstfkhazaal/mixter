@@ -38,14 +38,3 @@
 .ql-editor.ql-blank::before {
   color: inherit;
 }
-
-/* RTL Support */
-
-.ql-editor {
-  direction: rtl;
-  text-align: right;
-}
-
-.ql-snow .ql-picker:not(.ql-color-picker):not(.ql-icon-picker) svg{
-  @apply left-0 right-auto
-}

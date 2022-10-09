@@ -11,7 +11,19 @@ class Handler extends ExceptionHandler
     public function render($request, Throwable $e)
     {
         $response = parent::render($request, $e);
-        if (in_array($response->status(), [500, 503, 404, 403])) {
+        if (in_array($response->status(), [500, 420, 404, 403, 401])) {
+
+            if ($response->status() == 401) {
+                return Inertia::render('Error/Error401');
+            } else if ($response->status() == 403) {
+                return Inertia::render('Error/Error403');
+            } else if ($response->status() == 404) {
+                return Inertia::render('Error/Error404');
+            } else if ($response->status() == 429) {
+                return Inertia::render('Error/Error429');
+            } else if ($response->status() == 500) {
+                return Inertia::render('Error/Error500');
+            }
             return Inertia::render('Error', ['status' => $response->status()])
                 ->toResponse($request)
                 ->setStatusCode($response->status());
