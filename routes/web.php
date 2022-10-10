@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Models\Language;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,25 +24,13 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
-
-Route::get('/Login1', function () {
-    return Inertia::render('Auth/Login1');
-});
-Route::get('/error401', function () {
-    return Inertia::render('Error/Error401');
-});
-Route::get('/error403', function () {
-    return Inertia::render('Error/Error403');
-});
-Route::get('/error404', function () {
-    return Inertia::render('Error/Error404');
-});
-Route::get('/error429', function () {
-    return Inertia::render('Error/Error429');
-});
-Route::get('/error500', function () {
-    return Inertia::render('Error/Error500');
-});
+Route::get('/language/{language}', function ($language) {
+    $lang = Language::where('code', $language)->first();
+    if ($lang != null) {
+        Session()->put('locale', $language);
+    }
+    return redirect()->back();
+})->name('language');
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

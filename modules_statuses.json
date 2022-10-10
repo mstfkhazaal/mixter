@@ -1,3 +1,4 @@
 {
-    "Subscription": true
+    "Subscription": true,
+    "Addressing": true
 }

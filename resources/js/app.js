@@ -7,7 +7,7 @@ import { InertiaProgress } from "@inertiajs/progress";
 import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
 import { ZiggyVue } from "../../vendor/tightenco/ziggy/dist/vue.m";
 import Popper from "vue3-popper";
-
+import translation from "./base";
 const appName =
     window.document.getElementsByTagName("title")[0]?.innerText || "Mixter";
 
@@ -24,6 +24,7 @@ createInertiaApp({
             .component("Link", Link)
             .component("Head", Head)
             .component("Popper", Popper)
+            .mixin(translation)
             .use(ZiggyVue, Ziggy)
             .mount(el);
     },

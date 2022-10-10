@@ -1,0 +1,23 @@
+{
+    "name": "Wue/addressing",
+    "description": "",
+    "authors": [
+        {
+            "name": "Moustafa Khazaal",
+            "email": "mstfkhazaal@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Addressing\\": ""
+        }
+    }
+}

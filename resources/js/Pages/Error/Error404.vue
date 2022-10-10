@@ -13,8 +13,8 @@ const isDarkModeEnabled = ref(false);
             class="grid w-full grow grid-cols-1 place-items-center bg-center">
             <div class="max-w-[26rem] text-center">
                 <div class="w-full">
-                    <img class="w-full" v-if="isDarkModeEnabled" src="images/illustrations/ufo.svg" alt="image" />
-                    <img class="w-full" v-else src="images/illustrations/ufo-dark.svg" alt="image" />
+                    <img class="w-full" v-if="isDarkModeEnabled" src="/images/illustrations/ufo.svg" alt="image" />
+                    <img class="w-full" v-else src="/images/illustrations/ufo-dark.svg" alt="image" />
                 </div>
                 <p class="pt-4 text-7xl font-bold text-primary dark:text-accent">
                     404

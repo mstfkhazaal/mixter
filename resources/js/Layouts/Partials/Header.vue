@@ -7,11 +7,12 @@ const isShowPopper = ref(true);
 const activeTab = ref('tabAll');
 
 
+const isRTL = ref(true);
 
 
 </script>
 <template>
-    <nav class="header print:hidden">
+    <nav class="print:hidden" :class="isRTL?'header':'header-rtl'">
         <!-- App Header  -->
         <div class="header-container relative flex w-full bg-white dark:bg-navy-750 print:hidden">
             <!-- Header Items -->

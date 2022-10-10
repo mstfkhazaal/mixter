@@ -80,7 +80,9 @@ body.is-monochrome::before {
 .main-sidebar {
     @apply fixed top-0 left-0 z-40 h-full w-[var(--main-sidebar-width)] shrink-0 -translate-x-full transform-gpu transition-transform duration-200 ease-in md:z-[60] md:translate-x-0;
 }
-
+.main-sidebar-rtl {
+    @apply fixed top-0 right-0 z-40 h-full w-[var(--main-sidebar-width)] shrink-0 translate-x-full transform-gpu transition-transform duration-200 ease-in md:z-[60] md:translate-x-0;
+}
 .is-sidebar-open .main-sidebar {
     @apply translate-x-0;
 }
@@ -88,7 +90,9 @@ body.is-monochrome::before {
 .sidebar-panel {
     @apply fixed top-0 left-0 z-30 h-full w-[calc(var(--main-sidebar-width)+var(--sidebar-panel-width))] -translate-x-full transform-gpu shadow-soft transition-transform delay-150 duration-[.25s] ease-in dark:shadow-none md:delay-[unset];
 }
-
+.sidebar-panel-rtl {
+    @apply fixed top-0 right-0 z-30 h-full w-[calc(var(--main-sidebar-width)+var(--sidebar-panel-width))] translate-x-full transform-gpu shadow-soft transition-transform delay-150 duration-[.25s] ease-in dark:shadow-none md:delay-[unset];
+}
 .is-sidebar-open .sidebar-panel {
     @apply translate-x-0 ease-out;
 }
@@ -96,9 +100,15 @@ body.is-monochrome::before {
 .sidebar-panel-min {
     @apply fixed z-40 h-full w-[var(--sidebar-panel-min-width)] shrink-0 -translate-x-full transform-gpu shadow-soft transition-transform duration-[.25s] ease-in dark:shadow-none md:translate-x-[var(--main-sidebar-width)];
 }
+.sidebar-panel-min-rtl {
+    @apply fixed top-0 right-0 z-40 h-full w-[var(--sidebar-panel-min-width)] shrink-0 translate-x-full transform-gpu shadow-soft transition-transform duration-[.25s] ease-in dark:shadow-none md:-translate-x-[var(--main-sidebar-width)];
+}
 
 .is-sidebar-open .sidebar-panel-min {
     @apply -translate-x-full;
+}
+.is-sidebar-open .sidebar-panel-min-rtl {
+    @apply translate-x-full;
 }
 
 /* Header */
@@ -109,7 +119,13 @@ nav.header {
 nav.header:before {
     @apply absolute -left-[calc(100vw-100%)] h-full w-[calc(100vw-100%)] bg-white content-[''] dark:bg-navy-750;
 }
+nav.header-rtl {
+    @apply fixed top-0 left-0 z-20 flex h-[61px] w-full border-b border-slate-150 transition-all duration-[.25s] dark:border-navy-700 md:w-[calc(100%-var(--main-sidebar-width))];
+}
 
+nav.header-rtl:before {
+    @apply absolute -right-[calc(100vw-100%)] h-full w-[calc(100vw-100%)] bg-white content-[''] dark:bg-navy-750;
+}
 nav.header .header-container {
     @apply px-[var(--margin-x)] transition-[padding,width] duration-[.25s];
 }
@@ -139,6 +155,18 @@ nav.header .header-container {
     @apply ease-out xl:ml-[calc(var(--main-sidebar-width)+var(--sidebar-panel-width))];
 }
 
+.main-content-rtl {
+    @apply mt-[60px] grid grid-cols-1 place-content-start transition-[width,margin-left,margin-right,padding-left,padding-right] duration-[.25s] ease-in print:m-0 md:mr-[var(--main-sidebar-width)];
+}
+
+.has-min-sidebar .main-content-rtl {
+    @apply md:mr-[calc(var(--main-sidebar-width)+var(--sidebar-panel-min-width))];
+}
+
+.is-sidebar-open .main-content-rtl {
+    @apply ease-out xl:mr-[calc(var(--main-sidebar-width)+var(--sidebar-panel-width))];
+}
+
 /* Fix 100vh issue for phones */
 .h-100vh {
     height: 100vh;
@@ -162,6 +190,7 @@ code.inline-code {
 
 /* Scrollbar styles */
 .is-scrollbar-hidden {
+    -ms-overflow-style: none; /* IE and Edge */
     @apply [scrollbar-width:none]; /* Firefox */
 }
 

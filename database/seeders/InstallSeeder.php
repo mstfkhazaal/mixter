@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
 use App\Models\User;
+use App\Models\Language;
+use App\Models\LanguageCode;
 use Defender;
 
 class InstallSeeder extends Seeder
@@ -76,5 +78,7 @@ class InstallSeeder extends Seeder
         $roleCustomer->attachPermission($userDestroy);
         //Supplier Permission
         $userSupplier->attachPermission($userIndex);
+        ///////////////////////////////////
+
     }
 }

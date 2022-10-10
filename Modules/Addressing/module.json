@@ -1,0 +1,17 @@
+{
+    "name": "Addressing",
+    "alias": "addressing",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Addressing\\Providers\\AddressingServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": [],
+    "minimumCoreVersion": "",
+    "title": "",
+    "version": "0.0.1",
+    "author": "Moustafa Khazaal"
+}

@@ -26,6 +26,25 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
+        // Meta
+        Schema::create('meta', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->timestamps();
+            $table->softDeletes();
+        });
+        Schema::create('user_meta', function (Blueprint $table) {
+            $table->unsignedBigInteger('user_id')->index();
+            $table->unsignedBigInteger('meta_id')->index();
+            //Constrant Foreing Key
+            $table->foreign('user_id')->references('id')->on(config('auth.table', 'users'))->onDelete('cascade');
+            $table->foreign('meta_id')->references('id')->on(config('auth.table', 'meta'))->onDelete('cascade');
+            $table->json('value');
+            $table->timestamps();
+            $table->softDeletes();
+            //SETTING THE PRIMARY KEYS
+            $table->primary(['user_id', 'meta_id']);
+        });
         // User Fortify
         Schema::table('users', function (Blueprint $table) {
             $table->text('two_factor_secret')
@@ -145,6 +164,36 @@ return new class extends Migration
             $table->tinyInteger('value')->default(-1);
             $table->timestamp('expires')->nullable();
         });
+        // Languages
+        Schema::create('languages', function (Blueprint $table) {
+            $table->id();
+            $table->string('code', 3)->unique();
+            $table->string('name', 100)->unique();
+            $table->boolean('is_rtl');
+            $table->boolean('active');
+            $table->timestamps();
+            $table->softDeletes();
+        });
+        // Languages Code
+        Schema::create('language_codes', function (Blueprint $table) {
+            $table->id();
+            $table->string('code')->unique();
+            $table->json('value');
+            $table->timestamps();
+        });
+
+        // Modules
+        Schema::create('modules', function (Blueprint $table) {
+            $table->id();
+            $table->string('code', 10)->unique();
+            $table->string('name', 50)->unique();
+            $table->longText('description');
+            $table->string('icon');
+            $table->string('version', 12);
+            $table->boolean('active');
+            $table->timestamps();
+            $table->softDeletes();
+        });
     }
 
     /**
@@ -167,7 +216,7 @@ return new class extends Migration
         Schema::dropIfExists('password_resets');
         Schema::dropIfExists('failed_jobs');
         Schema::dropIfExists('personal_access_tokens');
-        Schema::dropIfExists('sessions');
+        //Schema::dropIfExists('sessions');
         Schema::drop(config('defender.role_table', 'roles'));
         Schema::drop(config('defender.permission_table', 'permissions'));
         /// Role User
@@ -196,5 +245,10 @@ return new class extends Migration
         });
 
         Schema::drop(config('defender.permission_role_table', 'permission_role'));
+
+
+        /// languages
+        Schema::dropIfExists('languages');
+        Schema::dropIfExists('language_codes');
     }
 };

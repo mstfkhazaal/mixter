@@ -47,6 +47,7 @@ class HandleInertiaRequests extends Middleware
             ],
             'roles' =>  json_decode(array(Defender::javascript()->render())[0]['roles']),
             'permission' =>  json_decode(array(Defender::javascript()->render())[0]['permissions']),
+
         ]);
     }
 }
